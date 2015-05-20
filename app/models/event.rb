@@ -5,4 +5,12 @@ class Event < ActiveRecord::Base
 
   has_many :invitations
   has_many :employees, :through => :invitations
+
+  def creator_name
+    result = ''
+    if creator
+      result = creator.first_name + ' ' + creator.last_name
+    end
+    return result
+  end
 end
