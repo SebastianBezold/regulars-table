@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_employee!, :except => [:index]
+
   # GET /events
   # GET /events.json
   def index
@@ -25,6 +27,12 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
+    if current_employee
+      @event.creator = current_employee
+    else
+      redirect_to new_employee_session_path, notice: 'You are not logged in.'
+    end
 
     respond_to do |format|
       if @event.save
