@@ -1,3 +1,8 @@
 class Event < ActiveRecord::Base
-  belongs_to :employee
+  belongs_to :creator, :class_name => :Employee, :foreign_key => "employee_id"
+
+  has_many :comments
+
+  has_many :invitations
+  has_many :employees, :through => :invitations
 end
