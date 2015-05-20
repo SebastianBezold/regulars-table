@@ -43,11 +43,10 @@ group :development, :test do
   gem 'spring'
 end
 
-group :assets do
-  gem 'therubyracer'
-  gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
-end
+gem 'therubyracer'
+gem 'less-rails'
+
+gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 
