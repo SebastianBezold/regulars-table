@@ -8,19 +8,55 @@
 </head>
 <body>
 
-  <div id="container">
-    <div id="user_nav">
-      <% if employee_signed_in? %>
-        Signed in as <%= current_employee.email %>. Not you?
-        <%= link_to "Sign out", destroy_employee_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_employee_registration_path%> or <%= link_to "Sign in", new_employee_session_path %>
-      <% end %>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Regulars Table Calendar</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Events", events_path %></li>
+          <li><%= link_to "Teams", teams_path %></li>
+          <li><%= link_to "Employees", employees_path %></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if employee_signed_in? %>
+            Signed in as <%= current_employee.email %>. Not you?
+            <%= link_to "Sign out",  destroy_employee_session_path, :method => :delete %>
+          <% else %>
+            <%= link_to "Sign up", new_employee_registration_path %> or <%= link_to "Sign in",  new_employee_session_path %>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 
-<%= yield %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9"><%= yield %></div>
+      <div class="col-md-3">
+        <h2>About this page</h2>
+        <p>This page is created in the context of the Ruby on Rails exam at DHBW-Karlsruhe.
+        It's purpose is to plan regular's table meetings with your team of developers. You can also invite other teams</p>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
