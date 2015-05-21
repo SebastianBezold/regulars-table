@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   def creator_name
     result = ''
     if creator
-      result = creator.first_name + ' ' + creator.last_name
+      result = creator.full_name
     end
     return result
   end

@@ -36,61 +36,17 @@
     </div>
     <%= error_span(@employee[:email]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :encrypted_password, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :encrypted_password, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:encrypted_password]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :reset_password_token, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :reset_password_token, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:reset_password_token]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :reset_password_sent_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :reset_password_sent_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:reset_password_sent_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :remember_created_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :remember_created_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:remember_created_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :current_sign_in_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :current_sign_in_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:current_sign_in_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_sign_in_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_sign_in_at, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:last_sign_in_at]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :current_sign_in_ip, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :current_sign_in_ip, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:current_sign_in_ip]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_sign_in_ip, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_sign_in_ip, :class => 'form-control' %>
-    </div>
-    <%= error_span(@employee[:last_sign_in_ip]) %>
+
+  <div class="form-group">
+    <ul class="list-group">
+    <%= f.collection_check_boxes :team_ids, Team.all, :id, :name do |box| %>
+      <li class="list-group-item">
+      <%= box.label do%>
+      <%= box.check_box + box.text%>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
   </div>
 
 

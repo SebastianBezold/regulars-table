@@ -5,38 +5,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th>Name</th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:encrypted_password) %></th>
-      <th><%= model_class.human_attribute_name(:reset_password_token) %></th>
-      <th><%= model_class.human_attribute_name(:reset_password_sent_at) %></th>
-      <th><%= model_class.human_attribute_name(:remember_created_at) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= link_to employee.id, employee_path(employee) %></td>
-        <td><%= employee.first_name %></td>
-        <td><%= employee.last_name %></td>
+        <td><%= link_to employee.full_name, employee_path(employee) %></td>
         <td><%= employee.email %></td>
-        <td><%= employee.encrypted_password %></td>
-        <td><%= employee.reset_password_token %></td>
-        <td><%= employee.reset_password_sent_at %></td>
-        <td><%= employee.remember_created_at %></td>
-        <td><%= employee.current_sign_in_at %></td>
-        <td><%= employee.last_sign_in_at %></td>
-        <td><%= employee.current_sign_in_ip %></td>
-        <td><%= employee.last_sign_in_ip %></td>
-        <td><%=l employee.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_employee_path(employee), :class => 'btn btn-default btn-xs' %>

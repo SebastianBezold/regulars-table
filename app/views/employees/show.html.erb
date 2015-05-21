@@ -10,23 +10,13 @@
   <dd><%= @employee.last_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @employee.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:encrypted_password) %>:</strong></dt>
-  <dd><%= @employee.encrypted_password %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:reset_password_token) %>:</strong></dt>
-  <dd><%= @employee.reset_password_token %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:reset_password_sent_at) %>:</strong></dt>
-  <dd><%= @employee.reset_password_sent_at %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:remember_created_at) %>:</strong></dt>
-  <dd><%= @employee.remember_created_at %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:current_sign_in_at) %>:</strong></dt>
-  <dd><%= @employee.current_sign_in_at %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong></dt>
-  <dd><%= @employee.last_sign_in_at %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:current_sign_in_ip) %>:</strong></dt>
-  <dd><%= @employee.current_sign_in_ip %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong></dt>
-  <dd><%= @employee.last_sign_in_ip %></dd>
 </dl>
+<strong>Teams</strong>
+<ul class="list-group">
+  <% @employee.teams.each do |team| %>
+  <li><% team.name %></li>
+  <% end %>
+</ul>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               employees_path, :class => 'btn btn-default'  %>

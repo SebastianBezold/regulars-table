@@ -8,6 +8,16 @@
   <dd><%= @team.name %></dd>
 </dl>
 
+<div class="panel-body">
+  <h2>Member</h2>
+  <dl class="dl-horizontal">
+    <% @team.employees.each do |employee| %>
+      <dt><strong>Name:</strong></dt>
+      <dd><%= employee.full_name %></dd>
+    <% end %>
+  </dl>
+</div>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               teams_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
