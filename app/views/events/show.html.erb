@@ -10,8 +10,8 @@
   <dd><%= @event.date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @event.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:employee_id) %>:</strong></dt>
-  <dd><%= @event.employee_id %></dd>
+  <dt><strong>Created by:</strong></dt>
+  <dd><%= @event.creator_name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
