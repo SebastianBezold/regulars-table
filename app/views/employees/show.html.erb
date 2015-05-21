@@ -14,7 +14,9 @@
 <strong>Teams</strong>
 <ul class="list-group">
   <% @employee.teams.each do |team| %>
-  <li><% team.name %></li>
+  <li class="list-group-item">
+  <%= team.name %>
+  </li>
   <% end %>
 </ul>
 
