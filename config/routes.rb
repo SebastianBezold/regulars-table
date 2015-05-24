@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :employees
 
+  resources :invitations
+
   root 'events#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
