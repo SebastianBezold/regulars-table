@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class EmployeesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @employee = employees(:one)
+    #sign_in @employee
   end
 
   test "should get index" do
@@ -18,7 +21,8 @@ class EmployeesControllerTest < ActionController::TestCase
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post :create, employee: { first_name: @employee.first_name, last_name: @employee.last_name }
+      post :create, employee: { first_name: @employee.first_name, last_name: @employee.last_name,
+                               email: 'me@example.com', password: 'min_eight_charackters' }
     end
 
     assert_redirected_to employee_path(assigns(:employee))

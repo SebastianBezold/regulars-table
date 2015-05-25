@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
     @comment = comments(:one)
+    @employee = Employee.first
+    sign_in @employee
   end
 
   test "should get index" do
