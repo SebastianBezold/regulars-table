@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   has_many :invitations
   has_many :employees, :through => :invitations
 
+  validates_presence_of :name
+
   def creator_name
     result = ''
     if creator
