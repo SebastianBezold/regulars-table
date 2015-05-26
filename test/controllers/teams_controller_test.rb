@@ -22,7 +22,7 @@ class TeamsControllerTest < ActionController::TestCase
 
   test "should create team" do
     assert_difference('Team.count') do
-      post :create, team: { name: @team.name }
+      post :create, team: { name: 'unique_name' }
     end
 
     assert_redirected_to team_path(assigns(:team))
