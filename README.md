@@ -1,6 +1,9 @@
 # Regulars table calendar
 The regulars table calendar project is the final exam of the Ruby on Rails lecture.
 
+## Student
+Sebastian Bezold, TINF12B1
+
 ## Planned feature set
 * Manage employees, teams and their relations
 	* an employee can be member of different teams
