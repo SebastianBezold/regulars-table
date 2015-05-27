@@ -9,3 +9,10 @@ two:
   first_name: MyString
   last_name: MyString
   email: test2@test.com
+
+Sebastian:
+  id: 3
+  first_name: Sebastian
+  last_name: Bezold
+  email: SebastianBezold@googlemail.com
+  encrypted_password: <%= Employee.new.send(:password_digest, 'Sebastian') %>
