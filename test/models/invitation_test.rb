@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class InvitationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'should have initial status unknown' do
+    assert Invitation.new.unknown?
+  end
 end

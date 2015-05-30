@@ -3,7 +3,7 @@ class CreateInvitations < ActiveRecord::Migration
     create_table :invitations do |t|
       t.integer :employee_id
       t.integer :event_id
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end
